@@ -1,17 +1,18 @@
 package com.example.proj2;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     ReviewAdapter reviewAdapter;
     RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +42,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "모두보기 버튼이 눌렸습니다", Toast.LENGTH_LONG).show();
             }
         });
+
+//        new Thread(new Runnable(){
+//            @Override
+//            public void run() {
+//                layout2 = findViewById(R.id.layout2);
+//                layout2.setRate("5위  1.8%");
+//                layout2.setClientCount("839,399명");
+//            }
+//        }).start();
     }
 }
