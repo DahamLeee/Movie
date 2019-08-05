@@ -1,4 +1,4 @@
-package com.example.proj2;
+package com.example.proj3;
 
 public class Review {
     String ID;

@@ -1,6 +1,5 @@
-package com.example.proj2;
+package com.example.proj3;
 
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
