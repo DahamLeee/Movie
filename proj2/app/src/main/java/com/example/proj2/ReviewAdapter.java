@@ -1,4 +1,4 @@
-package com.example.proj3;
+package com.example.proj2;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
