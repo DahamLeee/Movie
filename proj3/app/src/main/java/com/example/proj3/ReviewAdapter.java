@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder> {
-    ArrayList<Review> items = new ArrayList<Review>();
+    public static ArrayList<Review> items = new ArrayList<Review>();
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
@@ -32,9 +32,9 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
+        TextView textView; // 사용자 ID
+        TextView textView2; // 리뷰 시간
+        TextView textView3; // 리뷰 내용 || 별점
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -63,6 +63,5 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     }
     public void setItem(int position, Review item){
         items.set(position, item);
-        return ;
     }
 }
