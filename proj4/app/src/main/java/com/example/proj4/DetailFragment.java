@@ -1,8 +1,8 @@
 package com.example.proj4;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +13,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 
 public class DetailFragment extends Fragment {
     public static final int REQUEST_CODE_SHOW_ALL = 101;
@@ -25,17 +29,15 @@ public class DetailFragment extends Fragment {
     ImageButton hate;
     String temp = null;
     int temp1 = 0;
-
-    public static DetailFragment newInstance(){
-        return new DetailFragment();
-    }
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.detail_fragment, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_detail, container, false);
 
         likeCount = view.findViewById(R.id.likeCount);
         hateCount = view.findViewById(R.id.hateCount);
+
+        MainActivity activity = (MainActivity)getActivity();
+        activity.setActionBarTitle("영화 상세");
 
         like = view.findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener(){
@@ -53,7 +55,7 @@ public class DetailFragment extends Fragment {
                     likeDecrease();
                 }
             }
-        });
+            });
         hate = view.findViewById(R.id.hate);
         hate.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -100,29 +102,27 @@ public class DetailFragment extends Fragment {
                 startActivityForResult(intent, REQUEST_CODE_REGISTER);
             }
         });
-
-
         return view;
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if(requestCode == REQUEST_CODE_REGISTER){
-//            if(resultCode == RESULT_CANCELED){
-//                assert data != null;
-//                boolean bool = data.getBooleanExtra("response", false);
-//                Toast.makeText(getApplicationContext(), "저장하기 화면에서 돌아왔습니다.\n저장하기 여부 : " + bool , Toast.LENGTH_LONG).show();
-//            }
-//            else if(resultCode == RESULT_OK){
-//                assert data != null;
-//                boolean bool = data.getBooleanExtra("response", true);
-//                Toast.makeText(getApplicationContext(), "저장하기 화면에서 돌아왔습니다.\n저장하기 여부 : " + bool, Toast.LENGTH_LONG).show();
-//            }
-//        }
-//
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE_REGISTER){
+            if(resultCode == RESULT_CANCELED){
+                assert data != null;
+                boolean bool = data.getBooleanExtra("response", false);
+                Toast.makeText(getActivity(), "저장하기 화면에서 돌아왔습니다.\n저장하기 여부 : " + bool , Toast.LENGTH_LONG).show();
+            }
+            else if(resultCode == RESULT_OK){
+                assert data != null;
+                boolean bool = data.getBooleanExtra("response", true);
+                Toast.makeText(getActivity(), "저장하기 화면에서 돌아왔습니다.\n저장하기 여부 : " + bool, Toast.LENGTH_LONG).show();
+            }
+        }
+
+    }
 
     public void likeIncrease(){
         temp = likeCount.getText().toString();
@@ -153,3 +153,4 @@ public class DetailFragment extends Fragment {
         hateCount.setText(temp);
     }
 }
+
