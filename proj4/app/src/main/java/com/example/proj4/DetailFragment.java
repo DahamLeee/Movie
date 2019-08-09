@@ -1,6 +1,5 @@
 package com.example.proj4;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,7 +36,7 @@ public class DetailFragment extends Fragment {
         hateCount = view.findViewById(R.id.hateCount);
 
         MainActivity activity = (MainActivity)getActivity();
-        activity.setActionBarTitle("영화 상세");
+        activity.getSupportActionBar().setTitle("영화 목록");
 
         like = view.findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener(){

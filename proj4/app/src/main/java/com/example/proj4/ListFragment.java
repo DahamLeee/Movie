@@ -21,8 +21,8 @@ public class ListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        MainActivity activity = (MainActivity)getActivity();
-        activity.setActionBarTitle("영화 목록");
+//        MainActivity activity = (MainActivity)getActivity();
+//        activity.setActionBarTitle("영화 목록");
 
         pager = view.findViewById(R.id.pager);
         pager.setOffscreenPageLimit(6);
