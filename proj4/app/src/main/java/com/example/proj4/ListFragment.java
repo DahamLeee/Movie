@@ -14,21 +14,19 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 public class ListFragment extends Fragment {
+    public static ListFragment newInstance(){
+        return new ListFragment();
+    }
     ViewPager pager;
-
+    MyPagerAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-
-//        MainActivity activity = (MainActivity)getActivity();
-//        activity.setActionBarTitle("영화 목록");
-
         pager = view.findViewById(R.id.pager);
         pager.setOffscreenPageLimit(6);
 
-        MyPagerAdapter adapter = new MyPagerAdapter(getActivity().getSupportFragmentManager());
-
+        adapter = new  MyPagerAdapter(getActivity().getSupportFragmentManager());
         Fragment1 fragment1 = new Fragment1();
         Fragment2 fragment2 = new Fragment2();
         Fragment3 fragment3 = new Fragment3();
@@ -47,10 +45,8 @@ public class ListFragment extends Fragment {
         pager.setPadding(120,0,120,0);
 
         pager.setAdapter(adapter);
-
         return view;
     }
-
     class MyPagerAdapter extends FragmentStatePagerAdapter {
         ArrayList<Fragment> items = new ArrayList<Fragment>();
         public MyPagerAdapter(FragmentManager fm){

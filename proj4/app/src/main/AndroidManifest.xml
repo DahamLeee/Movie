@@ -7,15 +7,16 @@
         android:icon="@drawable/ic_app"
         android:label="씨네마 천국"
         android:roundIcon="@mipmap/ic_app"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ReviewActivity"></activity>
+        android:supportsRtl="true">
+        <activity android:name=".ReviewActivity"
+            android:theme="@style/AppTheme1"></activity>
         <activity android:name=".WriteActivity"
+            android:theme="@style/AppTheme1"
             android:label="한줄평 작성"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

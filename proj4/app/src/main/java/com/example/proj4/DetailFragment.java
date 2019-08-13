@@ -1,5 +1,6 @@
 package com.example.proj4;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +19,9 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class DetailFragment extends Fragment {
+    public static DetailFragment newInstance(){
+        return new DetailFragment();
+    }
     public static final int REQUEST_CODE_SHOW_ALL = 101;
     public static final int REQUEST_CODE_REGISTER = 102;
     ReviewAdapter reviewAdapter;
@@ -34,9 +38,6 @@ public class DetailFragment extends Fragment {
 
         likeCount = view.findViewById(R.id.likeCount);
         hateCount = view.findViewById(R.id.hateCount);
-
-        MainActivity activity = (MainActivity)getActivity();
-        activity.getSupportActionBar().setTitle("영화 목록");
 
         like = view.findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener(){
@@ -120,9 +121,7 @@ public class DetailFragment extends Fragment {
                 Toast.makeText(getActivity(), "저장하기 화면에서 돌아왔습니다.\n저장하기 여부 : " + bool, Toast.LENGTH_LONG).show();
             }
         }
-
     }
-
     public void likeIncrease(){
         temp = likeCount.getText().toString();
         temp1 = Integer.parseInt(temp);
@@ -151,5 +150,6 @@ public class DetailFragment extends Fragment {
         temp = String.valueOf(temp1);
         hateCount.setText(temp);
     }
+
 }
 

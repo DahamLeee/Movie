@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class Fragment1 extends Fragment {
+    public static Fragment1 newInstance(){
+        return new Fragment1();
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -9,9 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class Fragment2 extends Fragment {
-    public static Fragment2 newInstance(){
-        return new Fragment2();
-    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
