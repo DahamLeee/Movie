@@ -17,6 +17,10 @@
             android:title="예매하기"
             />
     </group>
-
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/ic_settings"
+        android:title="설정"
+        />
 
 </menu>

@@ -57,7 +57,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         public void setItem(Movie item){
             textView.setText(item.title);
-            textView2.setText(item.audience_rating);
+            textView2.setText(item.reservation_rate);
         }
     }
 }
